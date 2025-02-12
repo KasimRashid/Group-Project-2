@@ -8,7 +8,22 @@
 #include <time.h>
 #include <pthread.h>
 
+// not sure where to put these
+typedef struct 
+{
+    int * subArray;
+    size_t size;
+} SortingThreadParameters;
+
+// the list that will be sorted
+
+#define SIZE(sizeof(list)/sizeof(*list))
+int list[11] = {7, 12, 19, 3, 18, 4, 2, -5, 6, 15, 8};
+int result[SIZE];
+
 int main() {
-    // the list that will be sorted
+    
     int list[11] = {7, 12, 19, 3, 18, 4, 2, -5, 6, 15, 8};
+    int result[SIZE];
+
 }
