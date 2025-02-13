@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TheSize 10
+#define TheSize 11
 #define NUMBER_OF_THREADS 3
 
 void *sorter(void *params);  // Thread functionfor sorting 
