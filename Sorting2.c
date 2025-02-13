@@ -12,12 +12,12 @@ void *merger(void *params);  // Thread function for merging
 void quick_sort(int low, int high); // Quick Sort implementation 
 int partition(int low, int high);   // Helper function for Quick Sort
 
-int list[TheSize] = {7, 12, 19, 3, 18, 4, 2, 6, 15, 8};
+int list[TheSize] = {7, 12, 19, 3, 18, 4, 2, -5, 6, 15, 8};
 int result[TheSize];  // Array to hold sorted output
 
 typedef struct {
     int StartIndex;
-    int to_index;
+    int EndIndex;
 } parameters;
 
 int main(int argc, const char *argv[]) {
@@ -27,7 +27,7 @@ int main(int argc, const char *argv[]) {
     // Create first sorting thread
     parameters *data1 = (parameters *)malloc(sizeof(parameters));
     data1->StartIndex = 0;
-    data1->to_index = (TheSize / 2) - 1;
+    data1->EndIndex = (TheSize / 2) - 1;
     pthread_create(&workers[0], NULL, sorter, data1);
 
     // Create second sorting thread

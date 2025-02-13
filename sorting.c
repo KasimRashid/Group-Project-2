@@ -8,22 +8,36 @@
 #include <time.h>
 #include <pthread.h>
 
+// the list that will be sorted
+#define SIZE 11
+int list[SIZE] = {7, 12, 19, 3, 18, 4, 2, -5, 6, 15, 8};
+int result[SIZE];
+
 // not sure where to put these
 typedef struct 
 {
-    int * subArray;
-    size_t size;
-} SortingThreadParameters;
+    int start;
+    int end;
+} ThreadParameters;
 
-// the list that will be sorted
+void *sort(void *ThreadParameters);
+void *merge(void *ThreadParameters);
+void quick_sort(int lhs, int rhs);
+int partition(int lhs, int rhs);
 
-#define SIZE(sizeof(list)/sizeof(*list))
-int list[11] = {7, 12, 19, 3, 18, 4, 2, -5, 6, 15, 8};
-int result[SIZE];
 
-int main() {
+
+int main(int argc, const char *argv[]) {
+    int i;
+    pthread_t workers[3];
     
-    int list[11] = {7, 12, 19, 3, 18, 4, 2, -5, 6, 15, 8};
-    int result[SIZE];
+    // first sorting thread
+    ThreadParameters *thread_1 =(ThreadParameters *)malloc(sizeof(ThreadParameters));
+    thread_1->start = 0;
+    thread_1->end = (SIZE % 2 == 0) ? ((SIZE / 2) - 1) : ((SIZE + 1) / 2);
 
+    // Second thread
+    ThreadParameters *thread_2 =(ThreadParameters *)malloc(sizeof(ThreadParameters));
+    thread_2->start = (SIZE % 2 == 0) ? (SIZE / 2) : (((SIZE + 1) / 2) + 1);
+    thread_2->end = SIZE -1;
 }
