@@ -1,3 +1,4 @@
+// right now there is a few errros
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
