@@ -1,4 +1,6 @@
-// right now there is a few errros
+// Names: Navid Nikoo, Kasim Rashid, and Anthony Te
+// This program will take a list of intergers and divide them into two(almost) equally sized list
+// and two worker threads which will be sorting the list then merged with a merging thread
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,7 +45,7 @@ int main(int argc, const char *argv[]) {
     // Create merge thread
     parameters *theMerge = (parameters *)malloc(sizeof(parameters));
     theMerge->StartIndex = 0;
-    theMerge->EndIndex = TheSize - 1;  /// error 
+    theMerge->EndIndex = TheSize - 1;
     pthread_create(&workers[2], NULL, merger, theMerge);
 
     // Wait for merging thread to finish
@@ -68,7 +70,7 @@ int main(int argc, const char *argv[]) {
 void *sorter(void *params) {
     parameters *p = (parameters *)params;
     int begin = p->StartIndex;
-    int end = p->EndIndex; /// error 
+    int end = p->EndIndex;
 
     quick_sort(begin, end);
 
