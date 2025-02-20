@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+//#include <windows.h>
 
 #define TheSize 11
 #define NUMBER_OF_THREADS 3
